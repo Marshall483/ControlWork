@@ -1,4 +1,5 @@
 ﻿using System;
+using LongParameterMethod.LongCtorParameters;
 
 namespace LongParameterMethod
 {
@@ -6,7 +7,20 @@ namespace LongParameterMethod
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var director = new CarDirector();
+            
+            var sportcar = director.BuildSportcar();
+            var defaultCar = director.BuildDefault();
+            
+            var customCar = Car
+                .CreateBuilder()
+                .SetWheels(10)
+                .SetDoors(10)
+                .SetMaxLoad(1000)
+                .SetManufacturer(Manufacturer.Shcoda)
+                .SetColor(Color.White)
+                .Build();
+            
         }
     }
 }

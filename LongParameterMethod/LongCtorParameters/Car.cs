@@ -8,23 +8,26 @@ namespace LongParameterMethod.LongCtorParameters
         White,
         Black
     }
+
+    public enum Manufacturer
+    {
+        Opel,
+        Shcoda,
+        Lada,
+        Toyota
+    }
     
     public class Car
     {
         public uint WheelCount { get; set; }
         public uint DoorsCount { get; set; }
-        public uint MaxMaxLoad { get; set; }
-        public string Manufacturer { get; set; }
+        public uint MaxLoad { get; set; }
+        public Manufacturer Manufacturer { get; set; }
         public Color Color { get; set; }
 
-        public Car(uint wheelCount, uint doors, uint maxLoad, string manufacturer, Color color)
+        public static CarBuilder CreateBuilder()
         {
-            WheelCount = wheelCount;
-            DoorsCount = doors;
-            MaxMaxLoad = maxLoad;
-            Manufacturer = manufacturer;
-            Color = color;
+            return new CarBuilder();
         }
-        
     }
 }
